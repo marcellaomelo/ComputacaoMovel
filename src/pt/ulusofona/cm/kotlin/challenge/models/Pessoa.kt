@@ -1,10 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.models
-
-import jdk.nashorn.internal.objects.Global.getDate
-import jdk.nashorn.internal.objects.NativeDate.getDate
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
-import java.time.LocalDateTime
 import java.util.*
 
 class Pessoa (nome: String, dataDeNascimento: Date){
