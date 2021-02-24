@@ -5,14 +5,18 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoLigadoException
 
 
 interface Ligavel {
+
     var eligado: Boolean
+    @Throws(VeiculoLigadoException::class)
     fun ligar(){
         if(eligado){
             throw VeiculoLigadoException(mensagem = "")
         }
         eligado = true
     }
+    @Throws(VeiculoDesligadoException::class)
     fun desligar()
+
 
     fun estaLigado() : Boolean
 }
