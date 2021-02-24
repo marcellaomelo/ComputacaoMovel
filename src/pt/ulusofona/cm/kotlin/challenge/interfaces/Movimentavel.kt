@@ -1,6 +1,6 @@
 package pt.ulusofona.cm.kotlin.challenge.interfaces
 
-interface movimentavel {
+interface Movimentavel {
     var x: Int
     var y: Int
 

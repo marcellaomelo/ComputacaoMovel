@@ -8,7 +8,7 @@ class Posicao (x: Int, y: Int){
 
     fun alterarPosicaoPara(x: Int, y:Int){
         if(this.x == x && this.y== y) {
-            throw AlterarPosicaoException()
+            throw AlterarPosicaoException(mensagem= "")
         }
         this.x = x
         this.y = y

@@ -1,6 +1,10 @@
 package pt.ulusofona.cm.kotlin.challenge.models
+
+//import jdk.nashorn.internal.objects.Global.getDate
+//import jdk.nashorn.internal.objects.NativeDate.getDate
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
+//import java.time.LocalDateTime
 import java.util.*
 
 class Pessoa (nome: String, dataDeNascimento: Date){
@@ -20,7 +24,7 @@ class Pessoa (nome: String, dataDeNascimento: Date){
                 return i
             }
         }
-        throw VeiculoNaoEncontradoException()
+        throw VeiculoNaoEncontradoException(mensagem = "")
     }
     fun venderVeiculo(id: String, comprador: Pessoa){
 
@@ -38,7 +42,7 @@ class Pessoa (nome: String, dataDeNascimento: Date){
     fun tirarCarta(){
         var dataAtual: Date = Date()
         if(dataAtual.year - dataDeNascimento.year < 18){
-            throw MenorDeIdadeException()
+            throw MenorDeIdadeException(mensagem = "")
         }
         carta = Carta()
 

@@ -3,7 +3,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 
-class Carro (id: String, motor: Motor) : Veiculo(id){
+abstract class Carro (id: String, motor: Motor) : Veiculo(id){
 
     var motor = motor
 
@@ -17,7 +17,7 @@ class Carro (id: String, motor: Motor) : Veiculo(id){
             throw PessoaSemCartaException(pessoa.nome)
         }
         if(this.motor.ligado== false){
-            throw VeiculoDesligadoException()
+            throw VeiculoDesligadoException(mensagem = "")
         }
         ///mover carro
 
