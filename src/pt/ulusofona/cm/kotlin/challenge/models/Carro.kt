@@ -39,7 +39,7 @@ abstract class Carro (id: String, motor: Motor) : Veiculo(id), Ligavel{
 
 
     override fun toString(): String {
-        return "Carro | $identificador | $dataDeAquisicao | $posicao"
+        return "Carro | $id | $dataDeAquisicao | $posicao"
     }
 
 
