@@ -4,14 +4,14 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.*
 
-abstract class Veiculo (id:String) : Movimentavel {
+open abstract class Veiculo (id:String) : Movimentavel {
 
     var identificador = id
     lateinit var posicao: Posicao
     lateinit var dataDeAquisicao: Date
 
 
-    abstract fun requerCarta(): Boolean
+     abstract fun requerCarta(): Boolean
 
 
     override var x: Int
