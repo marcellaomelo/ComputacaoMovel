@@ -4,18 +4,21 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.*
 
-open abstract class Veiculo (id:String) : Movimentavel {
+abstract class Veiculo (id:String) : Movimentavel {
 
     var identificador = id
     lateinit var posicao: Posicao
     lateinit var dataDeAquisicao: Date
 
 
-    open fun requerCarta(): Boolean {
-        if (this is Carro) {
-            return true
-        }
-        return false
-    }
+    abstract fun requerCarta(): Boolean
+
+
+    override var x: Int
+        get() = TODO("Not yet implemented")
+        set(value) {}
+    override var y: Int
+        get() = TODO("Not yet implemented")
+        set(value) {}
 
 }
