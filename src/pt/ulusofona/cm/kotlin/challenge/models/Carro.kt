@@ -6,15 +6,21 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import java.text.SimpleDateFormat
 
-abstract class Carro (id: String, motor: Motor) : Veiculo(id), Ligavel{
+ class Carro (id: String, var motor: Motor) : Veiculo(id), Ligavel{
 
-    var motor = motor
     override fun requerCarta(): Boolean {
         return true
     }
 
+     override var x: Int
+         get() = TODO("Not yet implemented")
+         set(value) {}
+     override var y: Int
+         get() = TODO("Not yet implemented")
+         set(value) {}
 
-    @Throws(AlterarPosicaoException::class)
+
+     @Throws(AlterarPosicaoException::class)
     override fun moverPara(x: Int, y: Int) {
         if(motor.estaLigado()){
             posicao.alterarPosicaoPara(x, y)
@@ -24,8 +30,12 @@ abstract class Carro (id: String, motor: Motor) : Veiculo(id), Ligavel{
         motor.ligar()
     }
 
+     override var eligado: Boolean
+         get() = TODO("Not yet implemented")
+         set(value) {}
 
-    override fun ligar() {
+
+     override fun ligar() {
         motor.ligar()
     }
     override fun estaLigado(): Boolean {
@@ -39,7 +49,7 @@ abstract class Carro (id: String, motor: Motor) : Veiculo(id), Ligavel{
 
 
     override fun toString(): String {
-        return "Carro | $id | $dataDeAquisicao | $posicao"
+        return "Carro | ${this.id} | $dataDeAquisicao | $posicao"
     }
 
 
