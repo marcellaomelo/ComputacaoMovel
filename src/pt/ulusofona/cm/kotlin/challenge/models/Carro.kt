@@ -39,7 +39,7 @@ import java.text.SimpleDateFormat
     override fun toString(): String {
         val data = SimpleDateFormat("dd-MM-yyyy")
         val dataFinal = data.format(dataDeAquisicao)
-        return "Carro | ${this.identificador} | $dataFinal | Posicao $posicao"
+        return "Carro | ${this.identificador} | $dataFinal | $posicao"
     }
 
 

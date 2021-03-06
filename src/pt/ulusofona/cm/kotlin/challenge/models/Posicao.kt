@@ -15,7 +15,7 @@ data class Posicao (var x: Int, var y: Int){
     }
 
     override fun toString(): String {
-        return "x=$x | y=$y"
+        return "Posicao | x=$x | y=$y"
     }
     init {
         this.x =x
