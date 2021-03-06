@@ -14,7 +14,7 @@ import java.util.*
 data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     var veiculos: ArrayList<Veiculo> = ArrayList()
-    lateinit var posicao: Posicao
+    var posicao: Posicao
     var carta: Carta? = null
 
     fun comprarVeiculo(veiculo:Veiculo){
@@ -30,6 +30,7 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
         throw VeiculoNaoEncontradoException(mensagem = "")
     }
 
+
     fun venderVeiculo(id: String, x: Pessoa){
         for (veiculo in veiculos) {
             if (veiculo.identificador.equals(id) ) {
@@ -40,7 +41,6 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     }
     @Throws(AlterarPosicaoException::class, PessoaSemCartaException::class)
-
     fun moverVeiculoPara(id: String, x: Int, y: Int){
         for (i in veiculos) {
             if (i.identificador.equals(id) ) {
@@ -55,6 +55,11 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
     override fun moverPara(x: Int, y: Int) {
         posicao.alterarPosicaoPara(x, y)
     }
+    init {
+        posicao = Posicao(0,0)
+        veiculos = ArrayList()
+    }
+
     fun temCarta(): Boolean{
         if(carta == null){
             return false
