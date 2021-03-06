@@ -8,7 +8,7 @@ class Bicicleta(identificador: String) : Veiculo(identificador){
     override fun toString(): String {
         val data = SimpleDateFormat("dd-MM-yyyy")
         val dataFinal = data.format(dataDeAquisicao)
-        return "Bicicleta | $identificador | $dataFinal |  $posicao"
+        return "Bicicleta | $identificador | $dataFinal | $posicao"
     }
     override fun requerCarta(): Boolean {
         return false
