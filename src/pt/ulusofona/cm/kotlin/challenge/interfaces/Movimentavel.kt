@@ -1,12 +1,11 @@
 package pt.ulusofona.cm.kotlin.challenge.interfaces
 
-interface Movimentavel {
-    var x: Int
-    var y: Int
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 
-    fun moverPara (x: Int, y: Int){
-        this.x = x
-        this.y = y
-    }
+interface Movimentavel {
+    @Throws(AlterarPosicaoException::class)
+    fun moverPara(x: Int, y: Int)
 
 }
+
+

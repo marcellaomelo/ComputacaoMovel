@@ -2,6 +2,7 @@ package pt.ulusofona.cm.kotlin.challenge.models
 
 //import jdk.nashorn.internal.objects.Global.getDate
 //import jdk.nashorn.internal.objects.NativeDate.getDate
+import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.MenorDeIdadeException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.PessoaSemCartaException
 import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoNaoEncontradoException
@@ -10,12 +11,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Movimentavel
 import java.util.*
 
 data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
-    override var x: Int
-        get() = TODO("Not yet implemented")
-        set(value) {}
-    override var y: Int
-        get() = TODO("Not yet implemented")
-        set(value) {}
+
     var veiculos: ArrayList<Veiculo> = ArrayList()
     lateinit var posicao: Posicao
     var carta: Carta? = null
@@ -32,20 +28,31 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
         }
         throw VeiculoNaoEncontradoException(mensagem = "")
     }
-    fun venderVeiculo(id: String, comprador: Pessoa){
+
+    fun venderVeiculo(id: String, x: Pessoa){
+        for (veiculo in veiculos) {
+            if (veiculo.id.equals(id) ) {
+                x.comprarVeiculo(veiculo)
+                veiculos.remove(veiculo)
+            }
+        }
 
     }
+    @Throws(AlterarPosicaoException::class, PessoaSemCartaException::class)
 
     fun moverVeiculoPara(id: String, x: Int, y: Int){
         for (i in veiculos) {
             if (i.id.equals(id) ) {
                 if (i.requerCarta() && !temCarta()) {
-                    throw PessoaSemCartaException("")
+                    throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
                 }
                 i.moverPara(x,y)
             }
         }
 
+    }
+    override fun moverPara(x: Int, y: Int) {
+        posicao.alterarPosicaoPara(x, y)
     }
     fun temCarta(): Boolean{
         if(carta == null){
@@ -62,9 +69,6 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     }
 
-    override fun toString(): String {
-        return "Pessoa | $nome | $dataDeNascimento | $posicao "
-    }
-
-
 }
+
+

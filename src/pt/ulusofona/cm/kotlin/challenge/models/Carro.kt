@@ -12,13 +12,6 @@ import java.text.SimpleDateFormat
         return true
     }
 
-     override var x: Int
-         get() = TODO("Not yet implemented")
-         set(value) {}
-     override var y: Int
-         get() = TODO("Not yet implemented")
-         set(value) {}
-
 
      @Throws(AlterarPosicaoException::class)
     override fun moverPara(x: Int, y: Int) {
@@ -29,11 +22,6 @@ import java.text.SimpleDateFormat
         }
         motor.ligar()
     }
-
-     override var eligado: Boolean
-         get() = TODO("Not yet implemented")
-         set(value) {}
-
 
      override fun ligar() {
         motor.ligar()
@@ -49,7 +37,7 @@ import java.text.SimpleDateFormat
 
 
     override fun toString(): String {
-        return "Carro | ${this.id} | $dataDeAquisicao | $posicao"
+        return "Carro | ${this.id} | $dataDeAquisicao | Posicao $posicao"
     }
 
 
