@@ -37,7 +37,7 @@ import java.text.SimpleDateFormat
 
 
     override fun toString(): String {
-        return "Carro | ${this.id} | $dataDeAquisicao | Posicao $posicao"
+        return "Carro | ${this.identificador} | $dataDeAquisicao | Posicao $posicao"
     }
 
 
