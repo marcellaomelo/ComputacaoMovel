@@ -22,7 +22,7 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
     @Throws(VeiculoNaoEncontradoException::class)
     fun pesquisarVeiculo(id: String) : Veiculo?{
         for (i in veiculos){
-            if(i.id.equals(id)){
+            if(i.identificador.equals(id)){
                 return i
             }
         }
@@ -31,7 +31,7 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     fun venderVeiculo(id: String, x: Pessoa){
         for (veiculo in veiculos) {
-            if (veiculo.id.equals(id) ) {
+            if (veiculo.identificador.equals(id) ) {
                 x.comprarVeiculo(veiculo)
                 veiculos.remove(veiculo)
             }
@@ -42,7 +42,7 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     fun moverVeiculoPara(id: String, x: Int, y: Int){
         for (i in veiculos) {
-            if (i.id.equals(id) ) {
+            if (i.identificador.equals(id) ) {
                 if (i.requerCarta() && !temCarta()) {
                     throw PessoaSemCartaException("$nome não tem carta para conduzir o veículo indicado")
                 }

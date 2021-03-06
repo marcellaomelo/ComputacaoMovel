@@ -6,7 +6,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.VeiculoDesligadoException
 import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 import java.text.SimpleDateFormat
 
- class Carro (id: String, var motor: Motor) : Veiculo(id), Ligavel{
+ class Carro (identificador: String, var motor: Motor) : Veiculo(identificador), Ligavel{
 
     override fun requerCarta(): Boolean {
         return true

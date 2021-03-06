@@ -5,7 +5,7 @@ import pt.ulusofona.cm.kotlin.challenge.exceptions.AlterarPosicaoException
 class Bicicleta(identificador: String) : Veiculo(identificador){
 
     override fun toString(): String {
-        return "Bicicleta | $id | $dataDeAquisicao | Posicao $posicao"
+        return "Bicicleta | $identificador | $dataDeAquisicao | Posicao $posicao"
     }
     override fun requerCarta(): Boolean {
         return false
