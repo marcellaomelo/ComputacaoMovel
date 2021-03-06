@@ -37,7 +37,9 @@ import java.text.SimpleDateFormat
 
 
     override fun toString(): String {
-        return "Carro | ${this.identificador} | $dataDeAquisicao | Posicao $posicao"
+        val data = SimpleDateFormat("dd-MM-yyyy")
+        val dataFinal = data.format(dataDeAquisicao)
+        return "Carro | ${this.identificador} | $dataFinal | Posicao $posicao"
     }
 
 

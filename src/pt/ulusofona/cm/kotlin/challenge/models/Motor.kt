@@ -8,7 +8,7 @@ import pt.ulusofona.cm.kotlin.challenge.interfaces.Ligavel
 
     var ligado = false
     override fun toString(): String {
-        return "Motor | $cavalos | $cilindrada)"
+        return "Motor | $cavalos | $cilindrada"
     }
 
      override fun ligar() {
