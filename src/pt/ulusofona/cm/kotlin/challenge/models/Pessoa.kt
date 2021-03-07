@@ -66,7 +66,7 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
         }
         return false
     }
-    @Throws(MenorDeIdadeException::class)
+
     fun tirarCarta(){
         var dataAtual: Date = Date()
         if(dataAtual.year - dataDeNascimento.year < 18){
