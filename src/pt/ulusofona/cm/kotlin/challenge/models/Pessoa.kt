@@ -62,10 +62,11 @@ data class Pessoa (var nome: String, val dataDeNascimento: Date): Movimentavel{
 
     fun temCarta(): Boolean{
         if(carta != null){
-            return false
+            return true
         }
-        return true
+        return false
     }
+    @Throws(MenorDeIdadeException::class)
     fun tirarCarta(){
         var dataAtual: Date = Date()
         if(dataAtual.year - dataDeNascimento.year < 18){
